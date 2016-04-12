@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ControlShift Example Workflow w/ React</title>
+    <!-- <link rel="stylesheet" type="text/css" href="https://d8s293fyljwh4.cloudfront.net/assets/organisations/default/application.css"> -->
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- bootstrap theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <!-- react and jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.0.1/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.0.1/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+    <script src="https://npmcdn.com/react-router/umd/ReactRouter.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <!-- boostrap javascript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <!-- CryptoJS's md5.js for hashing for gravatars -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/md5.js"></script>
+    <!-- Google Maps Places API for looking up locations -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAm5aA1UDKBL6dRD9yHPGydlZcBgzk6lsY&libraries=places"></script>
+    <style type="text/css" media="screen">
+      a.dropdown-toggle.nav-user {
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+      .tiny-avatar {
+        position: relative;
+        display: inline-block;
+        margin-right: 5px;
+      }
+      .tiny-avatar img {
+        width: 28px;
+        height: 28px
+      }
+    </style>
+  </head>
+  <body>
+    <div id="demo-app"></div>
+    <script type="text/babel" src="scripts/app.jsx"></script>
+    <script type="text/babel" src="scripts/login_box.jsx"></script>
+    <script type="text/babel" src="scripts/petition_search.jsx"></script>
+    <script type="text/babel" src="scripts/petition_page.jsx"></script>
+    <script type="text/babel" src="scripts/about_page.jsx"></script>
+    <script type="text/babel">
+      window.controlshift_domain = 'demo.controlshiftlabs.com';
+      window.targetEffort = 'forecast-the-facts';
+      window.showProgressBarsAt = 0; //show progress bars > X precent
+      window.petitionResults = [];
+
+      $(document).ready(function() {
+        ReactDOM.render(<Routes/>, document.getElementById('demo-app'));
+      });
+    </script>
+  </body>
+</html>
+
