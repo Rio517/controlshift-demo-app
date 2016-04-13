@@ -24,7 +24,7 @@ window.NavBar = React.createClass({
           </div>
           <div className="collapse navbar-collapse">
             <ul className="nav navbar-nav">
-              <li className="active"><Link to="/">Home</Link></li>
+              <li><Link to="/">Home</Link></li>
               <li><Link to="about">About</Link></li>
             </ul>
             <ul className="nav navbar-nav navbar-right">
