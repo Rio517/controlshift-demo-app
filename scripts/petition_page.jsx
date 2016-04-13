@@ -42,7 +42,7 @@ window.PetitionPage = React.createClass({
     return {petition: {}};
   },
   componentDidMount: function(){
-    var lookupUrl = 'https://'+window.controlshift_domain+'/petitions/'+this.props.params.slug+'.json';
+    var lookupUrl = 'https://'+window.controlshiftDomain+'/petitions/'+this.props.params.slug+'.json';
     $.ajax({
       url: lookupUrl,
       dataType: 'jsonp'

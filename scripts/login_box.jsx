@@ -12,10 +12,10 @@ window.LoggedInDom = React.createClass({
           <span className="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
         </a>
         <ul className="dropdown-menu">
-          <li><a id="nav-user-dropdowns-campaigns" href={'https://'+window.controlshift_domain+'/my-campaigns'}>My Campaigns</a></li>
+          <li><a id="nav-user-dropdowns-campaigns" href={'https://'+window.controlshiftDomain+'/my-campaigns'}>My Campaigns</a></li>
           <li className="divider"></li>
-          <li><a id="nav-user-dropdowns-account" href={'https://'+window.controlshift_domain+'/account'}>My Account</a></li>
-          <li><a id="nav-user-dropdowns-logout" rel="nofollow" data-method="delete" href={'https://'+window.controlshift_domain+'/users/sign_out'}>Log out</a></li>
+          <li><a id="nav-user-dropdowns-account" href={'https://'+window.controlshiftDomain+'/account'}>My Account</a></li>
+          <li><a id="nav-user-dropdowns-logout" rel="nofollow" data-method="delete" href={'https://'+window.controlshiftDomain+'/users/sign_out'}>Log out</a></li>
         </ul>
       </li>
     );
@@ -25,7 +25,7 @@ window.LoggedInDom = React.createClass({
 window.LoggedOutDom = React.createClass({
   render: function(){
     return(
-      <li><a href={'https://'+window.controlshift_domain+'/users/sign_in'} title="Log In">Log In</a></li>
+      <li><a href={'https://'+window.controlshiftDomain+'/users/sign_in'} title="Log In">Log In</a></li>
     );
   }
 });
@@ -36,7 +36,7 @@ window.LoginBox = React.createClass({
   },
   componentDidMount: function() {
     $.ajax({
-      url: 'https://'+window.controlshift_domain+'/api/graph/me.json',
+      url: 'https://'+window.controlshiftDomain+'/api/graph/me.json',
       dataType: 'jsonp'
     }).done(function(data) {
       this.setState({data: data});

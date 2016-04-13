@@ -48,7 +48,7 @@ window.PetitionCreated = React.createClass({
       <div className="row">
         <div className="col-md-12">
           <h2>
-            <Link to={`/petitions/${petition.petition.slug}/`}>{petition.petition.title}</Link><br/>
+            <Link to={`petitions/${petition.petition.slug}/`}>{petition.petition.title}</Link><br/>
             <small>{petition.location}</small>
           </h2>
         </div>
@@ -84,7 +84,7 @@ window.PetitionSearch = React.createClass({
     return {petitions: window.petitionResults};
   },
   lookupPetitions: function(lookupData){
-    var lookupUrl = 'https://'+window.controlshift_domain+'/efforts/'+window.targetEffort+'/'+'near.json';
+    var lookupUrl = 'https://'+window.controlshiftDomain+'/efforts/'+window.targetEffort+'/'+'near.json';
     $.ajax({
       url: lookupUrl,
       dataType: 'jsonp',

@@ -1,11 +1,12 @@
-// the following window assignments is only neccessary so we can use the UDM version of react-router
-// https://github.com/reactjs/react-router
+// Let's make it a little easier to use react's UDM versions
 window.Router = ReactRouter.Router;
 window.Route = ReactRouter.Route;
 window.Link = ReactRouter.Link;
 window.Redirect = ReactRouter.Redirect;
 window.IndexRoute = ReactRouter.IndexRoute;
-window.browserHistory = ReactRouter.browserHistory;
+window.useRouterHistory = ReactRouter.useRouterHistory;
+window.createHistory = History.createHistory;
+// end UDM
 
 window.NavBar = React.createClass({
   render: function(){
@@ -24,7 +25,7 @@ window.NavBar = React.createClass({
           <div className="collapse navbar-collapse">
             <ul className="nav navbar-nav">
               <li className="active"><Link to="/">Home</Link></li>
-              <li><Link to="/about">About</Link></li>
+              <li><Link to="about">About</Link></li>
             </ul>
             <ul className="nav navbar-nav navbar-right">
               <LoginBox />
@@ -50,22 +51,5 @@ window.App = React.createClass({
         </div>
       </div>
     )
-  }
-});
-
-window.Routes = React.createClass({
-  getInitialState: function() {
-    return {};
-  },
-  render: function(){
-    return(
-      <Router history={browserHistory}>
-        <Route path="/" component={App}>
-          <IndexRoute component={PetitionSearch} />
-          <Route path="petitions/:slug/" component={PetitionPage} />
-          <Route path="about" component={AboutPage} />
-        </Route>
-      </Router>
-    );
   }
 });
