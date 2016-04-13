@@ -32,22 +32,26 @@ window.LoggedOutDom = React.createClass({
 
 window.LoginBox = React.createClass({
   getInitialState: function() {
-    return {data: []};
+    var url = 'https://'+window.controlshiftDomain+'/api/graph/me.json';
+    return {data: [], url: url};
   },
   componentDidMount: function() {
     $.ajax({
-      url: 'https://'+window.controlshiftDomain+'/api/graph/me.json',
+      url: this.state.url,
       dataType: 'jsonp'
     }).done(function(data) {
       this.setState({data: data});
     }.bind(this)).error(function(xhr, status, err) {
-      console.error(this.props.url, status, err.toString());
+      console.error(this.state.url, status, err.toString());
     }.bind(this));
   },
   render: function() {
     if(this.state.data.status == 'authenticated'){
       return(<LoggedInDom me={this.state.data.me}/>);
     }else{
+      if(this.state.data.status == 'error'){
+        console.error(this.state.url, 'status: ', this.state.data.status, JSON.stringify(this.state.data.errors));
+      }
       return(<LoggedOutDom />);
     }
   }
