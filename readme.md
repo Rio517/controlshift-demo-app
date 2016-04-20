@@ -8,4 +8,4 @@ The ControlShift Labs **API documentation** can be found here: [http://developer
 
 ## Developing
 
-We set this application generally run independent of tooling dependencies. You could just open the index file in any web browser and you should be up and running.
+This application can be run independent of any tooling dependencies, but you will need a connection to the internet as bootstrap/jquery/react are pulled in via CDN.  Open the index.html file in any web browser to view.
